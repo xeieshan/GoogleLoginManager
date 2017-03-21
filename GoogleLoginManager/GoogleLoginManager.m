@@ -8,7 +8,6 @@
 
 #import "GoogleLoginManager.h"
 
-
 @implementation GoogleLoginManager
 
 static GoogleLoginManager *_sharedLoginManager = nil;

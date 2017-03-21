@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 
 @protocol GoogleLoginManagerDelegate <NSObject>
-
+ 
 - (void)didLogin;
 - (void)didLogout;
 - (void)didDisconnect;

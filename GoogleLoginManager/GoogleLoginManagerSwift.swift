@@ -22,11 +22,11 @@ class GoogleLoginManager : NSObject,GIDSignInDelegate,GIDSignInUIDelegate {
     
     static let sharedLoginManager: GoogleLoginManager = GoogleLoginManager()
     
-    class func handleURL(url: NSURL, sourceApplication: String, annotation: AnyObject) -> Bool {
+    class func handleURL(_ url: URL, sourceApplication: String, annotation: AnyObject) -> Bool {
         return GIDSignIn.sharedInstance().handle(url as URL!, sourceApplication: sourceApplication, annotation: annotation)
     }
     
-    func tryLoginWith(delegate: GoogleLoginManagerDelegate) {
+    func tryLoginWith(_ delegate: GoogleLoginManagerDelegate) {
         self.delegate = delegate
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
@@ -47,7 +47,7 @@ class GoogleLoginManager : NSObject,GIDSignInDelegate,GIDSignInUIDelegate {
     // MARK: -
     
     // The sign-in flow has finished and was successful if |error| is |nil|.
-    public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+    open func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         // Perform any operations on signed in user here.
         print("name=\(user.profile.name)")
         print("accessToken=\(user.authentication.accessToken)")
@@ -60,7 +60,6 @@ class GoogleLoginManager : NSObject,GIDSignInDelegate,GIDSignInUIDelegate {
             if (self.delegate != nil) {
                 self.delegate?.didLogin()
             }
-            
         }
     }
     
@@ -70,7 +69,7 @@ class GoogleLoginManager : NSObject,GIDSignInDelegate,GIDSignInUIDelegate {
     // access to the user's resources has completed.
     
     // Finished disconnecting |user| from the app successfully if |error| is |nil|.
-    public func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!){
+    open func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!){
         // Perform any operations when the user disconnects from app here.
         print("didDisconnectWithUser")
         if (self.delegate != nil) {
@@ -86,7 +85,7 @@ class GoogleLoginManager : NSObject,GIDSignInDelegate,GIDSignInUIDelegate {
     // pressed the Sign In button
     // The sign-in flow has finished selecting how to proceed, and the UI should no longer display
     // a spinner or other "please wait" element.
-    public func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
+    open func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
         
     }
     
@@ -94,7 +93,7 @@ class GoogleLoginManager : NSObject,GIDSignInDelegate,GIDSignInUIDelegate {
     // If implemented, this method will be invoked when sign in needs to display a view controller.
     // The view controller should be displayed modally (via UIViewController's |presentViewController|
     // method, and not pushed unto a navigation controller's stack.
-    public func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
+    open func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
         let vc: UIViewController = (self.delegate as? UIViewController)!
         vc.present(viewController, animated: true, completion: nil)
     }
@@ -103,9 +102,11 @@ class GoogleLoginManager : NSObject,GIDSignInDelegate,GIDSignInUIDelegate {
     // If implemented, this method will be invoked when sign in needs to dismiss a view controller.
     // Typically, this should be implemented by calling |dismissViewController| on the passed
     // view controller.
-    public func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
+    open func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
         let vc: UIViewController = (self.delegate as? UIViewController)!
-        vc.dismiss(animated: true, completion: nil)
+        vc.dismiss(animated: true, completion: { 
+            
+        })
     }
     
 }
