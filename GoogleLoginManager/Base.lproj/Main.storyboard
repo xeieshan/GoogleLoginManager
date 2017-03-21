@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWb-Rv-7ay">
+                                <rect key="frame" x="159" y="76" width="57" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="SB5-Xc-HO5"/>
+                                </constraints>
+                                <state key="normal" title="Sign out"/>
+                                <connections>
+                                    <action selector="btnSignOut_Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="acd-kF-7Gr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQu-RH-57Q">
+                                <rect key="frame" x="16" y="128" width="343" height="519"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xd-fd-SHr">
+                                <rect key="frame" x="97.5" y="24" width="180" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="5hH-7d-DbH"/>
+                                </constraints>
+                                <state key="normal" image="LoginGoogle">
+                                    <color key="titleColor" red="0.97254901959999995" green="0.054901960780000002" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSignIn_Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L86-Es-Td0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2Xd-fd-SHr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BYA-d2-Ieu"/>
+                            <constraint firstItem="EWb-Rv-7ay" firstAttribute="centerX" secondItem="2Xd-fd-SHr" secondAttribute="centerX" id="CVf-2J-BMo"/>
+                            <constraint firstItem="AQu-RH-57Q" firstAttribute="top" secondItem="EWb-Rv-7ay" secondAttribute="bottom" constant="8" id="MQt-sc-v8J"/>
+                            <constraint firstItem="AQu-RH-57Q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Odw-J3-x8w"/>
+                            <constraint firstItem="AQu-RH-57Q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Yui-X1-eAm"/>
+                            <constraint firstItem="EWb-Rv-7ay" firstAttribute="top" secondItem="2Xd-fd-SHr" secondAttribute="bottom" constant="8" id="bs1-5u-D3q"/>
+                            <constraint firstItem="2Xd-fd-SHr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="4" id="iH8-6b-kKp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AQu-RH-57Q" secondAttribute="bottom" constant="20" id="tbz-0r-gmn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnSignOut" destination="EWb-Rv-7ay" id="1xO-NY-P2S"/>
+                        <outlet property="lblStatus" destination="AQu-RH-57Q" id="fKy-64-B2t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="36.431784107946029"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LoginGoogle" width="180" height="30"/>
+    </resources>
+</document>
