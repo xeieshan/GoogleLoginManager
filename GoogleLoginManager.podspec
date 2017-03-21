@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary          = 'Google Login Manager for iOS'
  
   s.description      = <<-DESC
-Login with google easily
+Login with google easily. Login Manager for Google (Google Plus Deprecated). Written in Swift 3.0 and Objective C.
                        DESC
  
   s.homepage         = 'https://github.com/xeieshan/GoogleLoginManager'
