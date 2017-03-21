@@ -14,5 +14,5 @@ Login with google easily. Login Manager for Google (Google Plus Deprecated). Wri
  
   s.ios.deployment_target = '10.0'
   s.source_files = 'GoogleLoginManager/GoogleLoginManager.{h,m}'
- 
+  s.dependency 'Google/SignIn'
 end
