@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name             = 'GoogleLoginManager'
   s.version          = '0.1.0'
-  s.summary          = 'By far the most fantastic view I have seen in my entire life. No joke.'
+  s.summary          = 'Google Login Manager for iOS'
  
   s.description      = <<-DESC
-This fantastic view changes its color gradually makes your app look fantastic!
+Login with google easily. Login Manager for Google (Google Plus Deprecated). Written in Swift 3.0 and Objective C.
                        DESC
  
   s.homepage         = 'https://github.com/xeieshan/GoogleLoginManager'

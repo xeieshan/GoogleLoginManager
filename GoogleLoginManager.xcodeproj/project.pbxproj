@@ -15,7 +15,6 @@
 		957428D31E81093D00D3F7E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 957428C81E81093D00D3F7E3 /* GoogleService-Info.plist */; };
 		957428D51E81093D00D3F7E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 957428CA1E81093D00D3F7E3 /* main.m */; };
 		957428D61E81093D00D3F7E3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957428CC1E81093D00D3F7E3 /* ViewController.m */; };
-		95B4119F1E81397700D34AD6 /* GoogleLoginManagerSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B4119E1E81397700D34AD6 /* GoogleLoginManagerSwift.swift */; };
 		98D038DEC92093761AEC8F43 /* libPods-GoogleLoginHelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9B066D201A560C80CA9ED4 /* libPods-GoogleLoginHelper.a */; };
 /* End PBXBuildFile section */
 
@@ -35,8 +34,6 @@
 		957428CA1E81093D00D3F7E3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		957428CB1E81093D00D3F7E3 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		957428CC1E81093D00D3F7E3 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		95B4119D1E81397600D34AD6 /* GoogleLoginManager-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoogleLoginManager-Bridging-Header.h"; sourceTree = "<group>"; };
-		95B4119E1E81397700D34AD6 /* GoogleLoginManagerSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleLoginManagerSwift.swift; sourceTree = "<group>"; };
 		C596B4EE65B47B529D429F3E /* Pods-GoogleLoginHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleLoginHelper.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleLoginHelper/Pods-GoogleLoginHelper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,13 +85,11 @@
 				957428C21E81093D00D3F7E3 /* Main.storyboard */,
 				957428C51E81093D00D3F7E3 /* GoogleLoginManager.h */,
 				957428C61E81093D00D3F7E3 /* GoogleLoginManager.m */,
-				95B4119E1E81397700D34AD6 /* GoogleLoginManagerSwift.swift */,
 				957428C81E81093D00D3F7E3 /* GoogleService-Info.plist */,
 				957428C91E81093D00D3F7E3 /* Info.plist */,
 				957428CA1E81093D00D3F7E3 /* main.m */,
 				957428CB1E81093D00D3F7E3 /* ViewController.h */,
 				957428CC1E81093D00D3F7E3 /* ViewController.m */,
-				95B4119D1E81397600D34AD6 /* GoogleLoginManager-Bridging-Header.h */,
 			);
 			path = GoogleLoginManager;
 			sourceTree = "<group>";
@@ -234,7 +229,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				957428CD1E81093D00D3F7E3 /* AppDelegate.m in Sources */,
-				95B4119F1E81397700D34AD6 /* GoogleLoginManagerSwift.swift in Sources */,
 				957428D61E81093D00D3F7E3 /* ViewController.m in Sources */,
 				957428D51E81093D00D3F7E3 /* main.m in Sources */,
 				957428D11E81093D00D3F7E3 /* GoogleLoginManager.m in Sources */,
@@ -357,7 +351,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEVELOPMENT_TEAM = 6H7Q8ZBM7V;
 				INFOPLIST_FILE = GoogleLoginManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -365,9 +359,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "80306d8e-b8fb-48ca-b5f0-ddda4721e35b";
 				PROVISIONING_PROFILE_SPECIFIER = PP_DEV_MIOID_WILDCARD;
-				SWIFT_OBJC_BRIDGING_HEADER = "GoogleLoginManager/GoogleLoginManager-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -377,14 +368,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GoogleLoginManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.GoogleLoginManager.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "GoogleLoginManager/GoogleLoginManager-Bridging-Header.h";
-				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
