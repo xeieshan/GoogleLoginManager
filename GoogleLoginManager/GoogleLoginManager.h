@@ -9,22 +9,25 @@
 #import <Foundation/Foundation.h>
 #import <Google/SignIn.h>
 #import "AppDelegate.h"
-
+#import "GIDGoogleUserInfo.h"
 @protocol GoogleLoginManagerDelegate <NSObject>
  
 - (void)didLogin;
 - (void)didLogout;
 - (void)didDisconnect;
+- (void)didFailWithError:(NSError*)error;
+
 
 @end
 
-@interface GoogleLoginManager : NSObject<
+@interface GoogleLoginManager : NSObject
+<
 GIDSignInUIDelegate,
 GIDSignInDelegate
 >
 
 @property (nonatomic, assign) id<GoogleLoginManagerDelegate> delegate;
-@property (nonatomic, strong) GIDGoogleUser *loggedUser;
+@property (nonatomic, strong) GIDGoogleUserInfo *loggedUser;
 
 + (instancetype)sharedLoginManager;
 + (BOOL)handleURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;

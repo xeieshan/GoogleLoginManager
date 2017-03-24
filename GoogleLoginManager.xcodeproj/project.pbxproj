@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		955D2E2E1E852A44004B4C2D /* GIDGoogleUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 955D2E2D1E852A43004B4C2D /* GIDGoogleUserInfo.m */; };
 		957428CD1E81093D00D3F7E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 957428BE1E81093D00D3F7E3 /* AppDelegate.m */; };
 		957428CE1E81093D00D3F7E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 957428BF1E81093D00D3F7E3 /* Assets.xcassets */; };
 		957428CF1E81093D00D3F7E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 957428C01E81093D00D3F7E3 /* LaunchScreen.storyboard */; };
@@ -23,6 +24,8 @@
 		5C4B98B461F78EDAA1F52C69 /* Pods-GoogleLoginHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleLoginHelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleLoginHelper/Pods-GoogleLoginHelper.debug.xcconfig"; sourceTree = "<group>"; };
 		5D9B066D201A560C80CA9ED4 /* libPods-GoogleLoginHelper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoogleLoginHelper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9543D24D1E7FE3BE008C674F /* GoogleLoginManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleLoginManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		955D2E2C1E852A43004B4C2D /* GIDGoogleUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIDGoogleUserInfo.h; sourceTree = "<group>"; };
+		955D2E2D1E852A43004B4C2D /* GIDGoogleUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIDGoogleUserInfo.m; sourceTree = "<group>"; };
 		957428BD1E81093D00D3F7E3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		957428BE1E81093D00D3F7E3 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		957428BF1E81093D00D3F7E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +91,8 @@
 				957428C21E81093D00D3F7E3 /* Main.storyboard */,
 				957428C51E81093D00D3F7E3 /* GoogleLoginManager.h */,
 				957428C61E81093D00D3F7E3 /* GoogleLoginManager.m */,
+				955D2E2C1E852A43004B4C2D /* GIDGoogleUserInfo.h */,
+				955D2E2D1E852A43004B4C2D /* GIDGoogleUserInfo.m */,
 				95B7CF5F1E831B03005416B6 /* GoogleLoginManagerSwift.swift */,
 				957428C81E81093D00D3F7E3 /* GoogleService-Info.plist */,
 				957428C91E81093D00D3F7E3 /* Info.plist */,
@@ -235,6 +240,7 @@
 			files = (
 				957428CD1E81093D00D3F7E3 /* AppDelegate.m in Sources */,
 				95B7CF601E831B03005416B6 /* GoogleLoginManagerSwift.swift in Sources */,
+				955D2E2E1E852A44004B4C2D /* GIDGoogleUserInfo.m in Sources */,
 				957428D61E81093D00D3F7E3 /* ViewController.m in Sources */,
 				957428D51E81093D00D3F7E3 /* main.m in Sources */,
 				957428D11E81093D00D3F7E3 /* GoogleLoginManager.m in Sources */,

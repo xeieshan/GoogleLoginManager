@@ -36,7 +36,7 @@ static GoogleLoginManager *_sharedLoginManager = nil;
     
     [GIDSignIn sharedInstance].uiDelegate = self;
     [GIDSignIn sharedInstance].delegate = self;
-    
+    [GIDSignIn sharedInstance].scopes = @[@"https://www.googleapis.com/auth/plus.me",@"https://www.googleapis.com/auth/plus.stream.read"];
     [[GIDSignIn sharedInstance] signIn];
     
 //    [[UIApplication sharedApplication] keyWindow] setYser
@@ -49,20 +49,63 @@ static GoogleLoginManager *_sharedLoginManager = nil;
 #pragma mark -
 
 - (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
-    // Perform any operations on signed in user here.
-    NSLog(@"name=%@", user.profile.name);
-    NSLog(@"accessToken=%@", user.authentication.accessToken);
-    [[GoogleLoginManager sharedLoginManager] setLoggedUser:user];
     
     if ([GIDSignIn sharedInstance].currentUser.authentication == nil) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(didLogout)]) {
             [self.delegate didLogout];
         }
     } else {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(didLogin)]) {
-            [self.delegate didLogin];
-        }
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:true];
+        
+        // Perform any operations on signed in user here.
+        NSLog(@"name=%@", user.profile.name);
+        NSLog(@"accessToken=%@", user.authentication.accessToken);
+        
+        NSOperationQueue *queue = [NSOperationQueue new];
+        queue.maxConcurrentOperationCount = 2;
+        
+        NSBlockOperation *blockOperation = [NSBlockOperation blockOperationWithBlock:^{
+            NSString *gplusapi = [NSString stringWithFormat:@"https://www.googleapis.com/oauth2/v3/userinfo?access_token=%@", user.authentication.accessToken];
+            NSURL *url = [NSURL URLWithString:gplusapi];
+            NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60.];
+            urlRequest.HTTPMethod = @"GET";
+            [urlRequest setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+            
+            NSURLSession *urlSession = [NSURLSession sharedSession];
+            [[urlSession dataTaskWithRequest:urlRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:false];
+                NSError *e = nil;
+                NSDictionary *userData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &e];
+                
+                if (!userData) {
+                    NSLog(@"Error parsing JSON: %@", e);
+                    if (self.delegate && [self.delegate respondsToSelector:@selector(didFailWithError:)]) {
+                        [self.delegate didFailWithError:e];
+                    }
+                } else {
+                    NSString *picture = userData[@"picture"];
+                    NSString *gender = userData[@"gender"];
+                    NSString *locale = userData[@"locale"];
+                    
+                    GIDGoogleUserInfo *infoUser = [[GIDGoogleUserInfo alloc] init];
+                    infoUser.user = user;
+                    infoUser.locale = locale;
+                    infoUser.picture = picture;
+                    infoUser.gender = gender;
+                    [[GoogleLoginManager sharedLoginManager] setLoggedUser:infoUser];
+                    dispatch_async(dispatch_get_main_queue(), ^{ 
+                        if (self.delegate && [self.delegate respondsToSelector:@selector(didLogin)]) {
+                            [self.delegate didLogin];
+                        }
+                    });
+                }
+                
+            }] resume];
+        }];
+        [queue addOperation:blockOperation];
     }
+    
 }
 
 // This callback is triggered after the disconnect call that revokes data
