@@ -38,10 +38,10 @@
    [[GoogleLoginManager sharedLoginManager] tryLogout];
 }
 - (void)didLogin{
-    GIDGoogleUser *user = [[GoogleLoginManager sharedLoginManager] loggedUser];
-    NSString *fullName = user.profile.name;
-    NSString *givenName = user.profile.givenName;
-    NSString *familyName = user.profile.familyName;
+    GIDGoogleUserInfo *user = [[GoogleLoginManager sharedLoginManager] loggedUser];
+    NSString *fullName = user.user.profile.name;
+    NSString *givenName = user.user.profile.givenName;
+    NSString *familyName = user.user.profile.familyName;
     NSString *email = @"http://github.com/xeieshan";//user.profile.email;
     // ...
     [_lblStatus setText:[NSString stringWithFormat:@"%@ %@ %@ %@", fullName,givenName,familyName,email]];

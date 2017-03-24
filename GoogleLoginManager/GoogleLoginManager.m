@@ -94,7 +94,7 @@ static GoogleLoginManager *_sharedLoginManager = nil;
                     infoUser.picture = picture;
                     infoUser.gender = gender;
                     [[GoogleLoginManager sharedLoginManager] setLoggedUser:infoUser];
-                    dispatch_async(dispatch_get_main_queue(), ^{ 
+                    dispatch_async(dispatch_get_main_queue(), ^{
                         if (self.delegate && [self.delegate respondsToSelector:@selector(didLogin)]) {
                             [self.delegate didLogin];
                         }
